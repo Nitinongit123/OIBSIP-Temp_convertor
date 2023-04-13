@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature_converter</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    <div class="box1">
+       <!-- <h1 class="h1">    Temperature Converter  <img id="img" src="temp.png" ></h1>-->
+       <div class="titel">
+        <h1 class="H1">    Temperature Converter<img class="img" src="temp.png" > </h1>
+
+       </div>
+    
+        <div class="temp">
+            <div class="inp"><input id="c"  class="in" type="number" placeholder="Enter for celcius" > C°</div>
+            
+            <div class="inp"><input id="f"  class="in" type="number" placeholder="Enter for fahrenheit" > F°</div>
+            
+            <div class="inp"><input id="k"  class="in" type="number" placeholder="Enter for kelvin" > K°</div>
+            
+            <button id="btn" onclick="buton()">clear</button>
+        </div>
+
+
+    </div>
+    <script>
+        
+
+
+
+        var cel=document.getElementById('c');
+        var fah=document.getElementById('f');
+        var kel=document.getElementById('k');
+
+
+       
+
+
+  
+    cel.addEventListener('input',function(){
+    let cTemp=this.value;
+    let fTemp=cTemp*(9/5)+32;
+    let kTemp=cTemp+273.15;
+    fah.value=fTemp;
+    kel.value=kTemp;
+    })
+
+
+
+    fah.addEventListener('input',function(){
+    fTemp=this.value;
+    cTemp=(fTemp-32)*(5/9);
+    kTemp=(fTemp-32)*(5/9)+273.15;
+    cel.value=cTemp;
+    kel.value=kTemp
+    })
+
+
+
+    kel.addEventListener('input',function(){
+    kTemp=this.value;
+    cTemp=kTemp-273.15;
+    fTemp=(kTemp-273.15)*((9/5))+32;
+    cel.value=cTemp;
+    fah.value=fTemp
+
+});
+
+
+function buton(){
+            document.getElementById('c').value="";
+            document.getElementById('f').value="";
+            document.getElementById('k').value="";
+        }
+
+    </script>
+    
+</body>
+</html>
